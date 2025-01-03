@@ -7,27 +7,22 @@
 ### 1. Mencari Artikel
 - User dapat mencari artikel yang berkaitan dengan perawatan, kesehatan, dan tips seputar kucing.
 
----
 
 ### 2. Forum Diskusi
 - User dapat bergabung dalam forum untuk berdiskusi dengan komunitas pecinta kucing.
 
----
 
 ### 3. Adopsi Kucing
 - User dapat melihat daftar kucing yang tersedia untuk diadopsi.
 
----
 
 ### 4. Mengirim Pertanyaan di Forum
 - User dapat membuat thread baru untuk mengajukan pertanyaan atau membahas topik tertentu.
 
----
 
 ### 5. Memberikan Tanggapan di Forum
 - User dapat memberikan komentar atau jawaban pada post diskusi di forum.
 
----
 
 ### 6. Menambah Galeri
 - User dapat mengunggah foto kucing untuk berbagi dengan komunitas.
