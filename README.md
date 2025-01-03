@@ -2,20 +2,59 @@
 
 **Kopeku** adalah sebuah platform yang ditujukan untuk para pecinta kucing di seluruh Indonesia. Melalui Kopeku, anggota komunitas dapat berbagi informasi, cerita, dan tips mengenai perawatan kucing, serta menghubungkan pecinta kucing dalam satu tempat.
 
-## Fitur Utama 🚀
-- **Dashboard**: Menampilkan statistik dan aktivitas terbaru komunitas.
-- **Ajukan Cuti**: Untuk anggota yang ingin mengambil waktu untuk kegiatan bersama kucing kesayangan.
-- **Catatan**: Tempat menyimpan tips dan pengalaman terkait perawatan kucing.
-- **Log Out**: Untuk keluar dari sistem dengan aman.
+## Fitur 🚀
 
-## Teknologi yang Digunakan 🛠️
-- **Bahasa Pemrograman**: PHP
-- **Framework**: CodeIgniter 4
-- **Database**: MySQL
+### 1. Mencari Artikel
+- User dapat mencari artikel yang berkaitan dengan perawatan, kesehatan, dan tips seputar kucing.
+
+---
+
+### 2. Forum Diskusi
+- User dapat bergabung dalam forum untuk berdiskusi dengan komunitas pecinta kucing.
+
+---
+
+### 3. Adopsi Kucing
+- User dapat melihat daftar kucing yang tersedia untuk diadopsi.
+
+---
+
+### 4. Mengirim Pertanyaan di Forum
+- User dapat membuat thread baru untuk mengajukan pertanyaan atau membahas topik tertentu.
+
+---
+
+### 5. Memberikan Tanggapan di Forum
+- User dapat memberikan komentar atau jawaban pada post diskusi di forum.
+
+---
+
+### 6. Menambah Galeri
+- User dapat mengunggah foto kucing untuk berbagi dengan komunitas.
+
+---
+
+## Penggunaan 💡
+
+   
+1. **Navigasi**  
+   Gunakan sidebar untuk memilih menu:
+   - `Artikel` untuk mencari artikel.
+   - `Forum` untuk bergabung dalam diskusi.
+   - `Adopsi` untuk melihat daftar kucing yang bisa diadopsi.
+   - `Galeri` untuk menambahkan foto.
+
+---
+
+## Tools 🛠️
+- **Backend**: PHP (CodeIgniter 4)
 - **Frontend**: HTML, CSS, JavaScript
-- **Tool**: Visual Studio Code, Composer, XAMPP
+- **Database**: MySQL
+- **Tool**: Visual Studio Code, XAMPP
 
-## Instalasi dan Penggunaan 💻
+---
+
+## Instalasi 💻
 
 1. **Clone Repositori**
    ```bash
