@@ -38,7 +38,7 @@
 
    
 1. **Navigasi**  
-   Gunakan sidebar untuk memilih menu:
+   Gunakan navbar untuk memilih menu:
    - `Artikel` untuk mencari artikel.
    - `Forum` untuk bergabung dalam diskusi.
    - `Adopsi` untuk melihat daftar kucing yang bisa diadopsi.
