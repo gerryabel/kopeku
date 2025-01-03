@@ -1,68 +1,61 @@
-# CodeIgniter 4 Application Starter
+# Kopeku (Komunitas Pecinta Kucing) 🐾
 
-## What is CodeIgniter?
+**Kopeku** adalah sebuah platform yang ditujukan untuk para pecinta kucing di seluruh Indonesia. Melalui Kopeku, anggota komunitas dapat berbagi informasi, cerita, dan tips mengenai perawatan kucing, serta menghubungkan pecinta kucing dalam satu tempat.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Fitur 🚀
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### 1. Mencari Artikel
+- User dapat mencari artikel yang berkaitan dengan perawatan, kesehatan, dan tips seputar kucing.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### 2. Forum Diskusi
+- User dapat bergabung dalam forum untuk berdiskusi dengan komunitas pecinta kucing.
 
-## Installation & updates
+---
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### 3. Adopsi Kucing
+- User dapat melihat daftar kucing yang tersedia untuk diadopsi.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+### 4. Mengirim Pertanyaan di Forum
+- User dapat membuat thread baru untuk mengajukan pertanyaan atau membahas topik tertentu.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+---
 
-## Important Change with index.php
+### 5. Memberikan Tanggapan di Forum
+- User dapat memberikan komentar atau jawaban pada post diskusi di forum.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+---
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 6. Menambah Galeri
+- User dapat mengunggah foto kucing untuk berbagi dengan komunitas.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## Penggunaan 💡
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+   
+1. **Navigasi**  
+   Gunakan sidebar untuk memilih menu:
+   - `Artikel` untuk mencari artikel.
+   - `Forum` untuk bergabung dalam diskusi.
+   - `Adopsi` untuk melihat daftar kucing yang bisa diadopsi.
+   - `Galeri` untuk menambahkan foto.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+## Tools 🛠️
+- **Backend**: PHP (CodeIgniter 4)
+- **Frontend**: HTML, CSS, JavaScript
+- **Database**: MySQL
+- **Tool**: Visual Studio Code, XAMPP
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+---
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## Instalasi 💻
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+1. **Clone Repositori**
+   ```bash
+   git clone https://github.com/username/kopeku.git
