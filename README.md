@@ -2,6 +2,8 @@
 
 **Kopeku** adalah sebuah platform yang ditujukan untuk para pecinta kucing di seluruh Indonesia. Melalui Kopeku, anggota komunitas dapat berbagi informasi, cerita, dan tips mengenai perawatan kucing, serta menghubungkan pecinta kucing dalam satu tempat.
 
+---
+
 ## Fitur 🚀
 
 ### 1. Mencari Artikel
