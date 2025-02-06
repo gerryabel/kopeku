@@ -55,4 +55,4 @@
 
 1. **Clone Repositori**
    ```bash
-   git clone https://github.com/username/kopeku.git
+   git clone https://github.com/gerryabel/kopeku.git
