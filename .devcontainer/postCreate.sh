@@ -3,11 +3,6 @@ set -euo pipefail
 
 cd /workspaces/kopeku
 
-echo "==> Pastikan klien MySQL tersedia"
-if ! command -v mysql >/dev/null 2>&1; then
-  sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends mariadb-client
-fi
-
 echo "==> composer install"
 composer install --no-interaction --prefer-dist
 
@@ -38,20 +33,34 @@ if [ "$ok" != "1" ]; then
   exit 1
 fi
 
-export MYSQL_PWD=kopeku_pass
+echo "==> Reset & import db/komunitas.sql via PDO"
+php <<'PHP'
+<?php
+$pdo = new PDO('mysql:host=db;port=3306;dbname=kopeku', 'kopeku', 'kopeku_pass', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_MULTI_STATEMENTS => true,
+]);
 
-echo "==> Bersihkan tabel lama (idempotent, user kopeku)"
-tables=$(mysql --ssl-mode=DISABLED -h db -u kopeku -N -B -e 'SELECT GROUP_CONCAT(CONCAT("`", TABLE_NAME, "`")) FROM information_schema.TABLES WHERE TABLE_SCHEMA="kopeku"' 2>/dev/null || true)
-if [ -n "$tables" ]; then
-  mysql --ssl-mode=DISABLED -h db -u kopeku -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS $tables; SET FOREIGN_KEY_CHECKS=1;" || echo "  (gagal bersihkan tabel lama, lanjut import)"
-fi
+$tables = $pdo->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA='kopeku'")->fetchAll(PDO::FETCH_COLUMN);
+if ($tables) {
+    $names = implode(',', array_map(fn($t) => '`' . str_replace('`', '``', $t) . '`', $tables));
+    $pdo->exec("SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS $names; SET FOREIGN_KEY_CHECKS=1;");
+    echo "  -> hapus " . count($tables) . " tabel lama\n";
+}
 
-echo "==> Mengimpor db/komunitas.sql (data contoh TA)"
-mysql --ssl-mode=DISABLED -h db -u kopeku kopeku < db/komunitas.sql
+$sql = file_get_contents('db/komunitas.sql');
+if ($sql === false) {
+    throw new RuntimeException('gagal baca db/komunitas.sql');
+}
+$pdo->exec($sql);
+echo "  -> import OK (" . round(strlen($sql) / 1024) . " KB)\n";
+PHP
 
-echo "==> Migrasi & seeder (akun demo)"
-php artisan migrate --force
-php artisan db:seed --force
+echo "==> Migrasi (no-op jika sudah tercatat di dump)"
+php artisan migrate --force || echo "  (migrate gagal tapi dilanjutkan; tabel sudah dari dump)"
+
+echo "==> Seeder akun demo (admin@example.com / password)"
+php artisan db:seed --force || echo "  (seed gagal, akun demo tetap bisa dibuat manual)"
 
 echo "==> Symlink storage"
 php artisan storage:link || true
