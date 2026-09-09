@@ -23,6 +23,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: kopeku_root
+      MYSQL_ROOT_HOST: "%"
       MYSQL_DATABASE: kopeku
       MYSQL_USER: kopeku
       MYSQL_PASSWORD: kopeku_pass
