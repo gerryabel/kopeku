@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
 
         if (($name = env('CODESPACE_NAME', '')) !== '') {
             URL::forceRootUrl('https://' . $name . '-8000.app.github.dev');
+            config([
+                'session.domain' => $name . '-8000.app.github.dev',
+                'session.secure' => true,
+            ]);
         }
 
         View::composer('*', function ($view) {
