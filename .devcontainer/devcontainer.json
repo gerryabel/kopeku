@@ -1,9 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "KOPEKU (PHP + MySQL)",
-  "dockerComposeFile": "./compose.yaml",
-  "service": "app",
-  "workspaceFolder": "/workspaces/kopeku",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
   "forwardPorts": [8000, 3306],
   "remoteUser": "vscode",
   "customizations": {
@@ -20,6 +21,6 @@
       }
     }
   },
-  "postCreateCommand": "/workspaces/kopeku/.devcontainer/postCreate.sh",
-  "postStartCommand": "nohup php artisan serve --host=0.0.0.0 --port=8000 > /tmp/kopeku-serve.log 2>&1 &"
+  "postCreateCommand": "bash /workspaces/kopeku/.devcontainer/postCreate.sh",
+  "postStartCommand": "bash /workspaces/kopeku/.devcontainer/postStart.sh"
 }

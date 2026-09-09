@@ -129,15 +129,16 @@ Tanpa perlu install PHP, Composer, atau MySQL di mesin lokal — semuanya berjal
 
 1. Buka repo [gerryabel/kopeku](https://github.com/gerryabel/kopeku).
 2. Klik tombol **Code ▸ Codespaces ▸ New codespace**.
-3. Tunggu container selesai dibangun (±2–5 menit, hanya sekali). Prosesnya otomatis:
+3. Tunggu container selesai dibangun (±3–6 menit, hanya sekali). Prosesnya otomatis:
    - menginstal dependensi (`composer install`),
-   - menyiapkan `.env` (MySQL di container `db`),
+   - menjalankan MySQL di dalam container dan membuat database `kopeku`,
+   - menyiapkan `.env` (MySQL di `127.0.0.1:3306`),
    - mengimpor `db/komunitas.sql` (data contoh TA),
    - menjalankan migrasi + seeder,
    - menjalankan server di **port 8000**.
 4. Buka tab **Ports ▸ 8000 ▸ Open in Browser** (biasanya muncul otomatis).
 
-Skema container ada di [`.devcontainer/`](.devcontainer) — dua service: `app` (PHP 8.3) dan `db` (MySQL 8).
+Konfigurasi container ada di [`.devcontainer/`](.devcontainer) — satu container berisi PHP 8.3 + MySQL 8.
 
 ## Struktur Proyek
 

@@ -1,8 +1,9 @@
-# KOPEKU dev container — PHP 8.3 + MySQL client + PHP extensions
+# KOPEKU dev container — PHP 8.3 + MySQL server + PHP extensions
 FROM mcr.microsoft.com/devcontainers/php:8.3
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        mysql-server \
         default-mysql-client \
         php8.3-gd \
         php8.3-intl \
