@@ -123,6 +123,22 @@ Tugas Akhir — Gerry Abel Al Ashby
 | Admin | `admin@example.com` | `password` |
 | Member | `test@example.com` | `password` |
 
+## Menjalankan via GitHub Codespaces (Tanpa Instalasi)
+
+Tanpa perlu install PHP, Composer, atau MySQL di mesin lokal — semuanya berjalan di cloud:
+
+1. Buka repo [gerryabel/kopeku](https://github.com/gerryabel/kopeku).
+2. Klik tombol **Code ▸ Codespaces ▸ New codespace**.
+3. Tunggu container selesai dibangun (±2–5 menit, hanya sekali). Prosesnya otomatis:
+   - menginstal dependensi (`composer install`),
+   - menyiapkan `.env` (MySQL di container `db`),
+   - mengimpor `db/komunitas.sql` (data contoh TA),
+   - menjalankan migrasi + seeder,
+   - menjalankan server di **port 8000**.
+4. Buka tab **Ports ▸ 8000 ▸ Open in Browser** (biasanya muncul otomatis).
+
+Skema container ada di [`.devcontainer/`](.devcontainer) — dua service: `app` (PHP 8.3) dan `db` (MySQL 8).
+
 ## Struktur Proyek
 
 ```text

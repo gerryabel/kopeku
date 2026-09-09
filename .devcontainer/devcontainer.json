@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "KOPEKU (PHP + MySQL)",
+  "dockerComposeFile": "./compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/kopeku",
+  "forwardPorts": [8000, 3306],
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "shufo.vscode-blade-formatter",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "intelephense.files.maxSize": 5000000,
+        "files.eol": "\n"
+      }
+    }
+  },
+  "postCreateCommand": "/workspaces/kopeku/.devcontainer/postCreate.sh",
+  "postStartCommand": "nohup php artisan serve --host=0.0.0.0 --port=8000 > /tmp/kopeku-serve.log 2>&1 &"
+}
