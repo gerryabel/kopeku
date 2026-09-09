@@ -41,13 +41,13 @@ fi
 export MYSQL_PWD=kopeku_pass
 
 echo "==> Bersihkan tabel lama (idempotent, user kopeku)"
-tables=$(mysql -h db -u kopeku -N -B -e 'SELECT GROUP_CONCAT(CONCAT("`", TABLE_NAME, "`")) FROM information_schema.TABLES WHERE TABLE_SCHEMA="kopeku"' 2>/dev/null || true)
+tables=$(mysql --ssl-mode=DISABLED -h db -u kopeku -N -B -e 'SELECT GROUP_CONCAT(CONCAT("`", TABLE_NAME, "`")) FROM information_schema.TABLES WHERE TABLE_SCHEMA="kopeku"' 2>/dev/null || true)
 if [ -n "$tables" ]; then
-  mysql -h db -u kopeku -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS $tables; SET FOREIGN_KEY_CHECKS=1;" || echo "  (gagal bersihkan tabel lama, lanjut import)"
+  mysql --ssl-mode=DISABLED -h db -u kopeku -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS $tables; SET FOREIGN_KEY_CHECKS=1;" || echo "  (gagal bersihkan tabel lama, lanjut import)"
 fi
 
 echo "==> Mengimpor db/komunitas.sql (data contoh TA)"
-mysql -h db -u kopeku kopeku < db/komunitas.sql
+mysql --ssl-mode=DISABLED -h db -u kopeku kopeku < db/komunitas.sql
 
 echo "==> Migrasi & seeder (akun demo)"
 php artisan migrate --force
