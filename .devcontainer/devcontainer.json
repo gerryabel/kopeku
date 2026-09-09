@@ -1,10 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "KOPEKU (PHP + MySQL)",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
+  "name": "KOPEKU (PHP 8.3 + MySQL 8)",
+  "dockerComposeFile": "./compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/kopeku",
   "forwardPorts": [8000, 3306],
   "remoteUser": "vscode",
   "customizations": {

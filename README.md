@@ -131,14 +131,13 @@ Tanpa perlu install PHP, Composer, atau MySQL di mesin lokal — semuanya berjal
 2. Klik tombol **Code ▸ Codespaces ▸ New codespace**.
 3. Tunggu container selesai dibangun (±3–6 menit, hanya sekali). Prosesnya otomatis:
    - menginstal dependensi (`composer install`),
-   - menjalankan MySQL di dalam container dan membuat database `kopeku`,
-   - menyiapkan `.env` (MySQL di `127.0.0.1:3306`),
+   - menyiapkan `.env` (MySQL di service `db`),
    - mengimpor `db/komunitas.sql` (data contoh TA),
    - menjalankan migrasi + seeder,
    - menjalankan server di **port 8000**.
 4. Buka tab **Ports ▸ 8000 ▸ Open in Browser** (biasanya muncul otomatis).
 
-Konfigurasi container ada di [`.devcontainer/`](.devcontainer) — satu container berisi PHP 8.3 + MySQL 8.
+Konfigurasi container ada di [`.devcontainer/`](.devcontainer) — dua service: `app` (PHP 8.3 + ekstensi) dan `db` (MySQL 8).
 
 ## Struktur Proyek
 
